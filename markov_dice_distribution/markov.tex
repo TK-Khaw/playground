@@ -1,0 +1,42 @@
+\documentclass{ieeeaccess}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts, amsthm, mathtools}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{multirow, array}
+\begin{document}
+\maketitle
+\section{Intro}
+
+The Markov chain for the system can be defined by the transition matrix as below.
+
+\begin{equation}
+\mathbf{X}=\begin{pmatrix}
+0 & A & B & C & \dotsb & 0 \\
+0 & 0 & A & B & \dotsb & 0 \\
+\dotsb\\
+0 & 0 & 0 & 0 & \dotsb & 0
+\end{pmatrix},
+\mathbf{X} \in \mathbb{R}^{n \times n}
+
+\end{equation}
+
+where from this we can compute for the output distribution. 
+
+\begin{equation}
+	v_{in} = \begin{pmatrix}1&0&0&\dotsb&0\end{pmatrix},
+\end{equation}
+
+\begin{equation}
+	v_{out} = v_{in}\mathbf{X}^{i},
+\end{equation}
+
+\begin{equation}
+	v_{out},v_{in} \in \mathbb{R}^{1 \times n}.
+\end{equation}
+
+where $\mathbf{X}$ is the transition matrix, $A,B,C$ are the respective probabilities of transition, $i$ is the number of iteration, $n$ is the number of possible states. 
+
+\end{document}
