@@ -5,9 +5,9 @@ import math
 import functools
 import matplotlib.pyplot as plt
 
-SPHERE_RADIUS = 10000.0
+SPHERE_RADIUS = 1.0
 MAX_BRIGHT = 5
-BRIGHT_SCALE = 100
+BRIGHT_SCALE = 50
 
 def parse_angle(angle_in_deg):
     """ 
@@ -74,29 +74,54 @@ class Star:
 
         return self._cart_coord
 
-    def inplane_vector(self, normal):
+    def inplane_vector(self, normal, mode):
         """
         returns in-plane 3d vector wrt normal passed in.
         """
+        return {
+            'ortho' : self.inplane_ortho_vector,
+            'stereo' : self.inplane_stereo_vector,
+        }.get(mode, self.inplane_ortho_vector)(normal)
+
+    def inplane_coordinate(self, normal, bases, mode):
+        """
+        returns in-plane coordinate wrt normal and the unit bases passed in. 2d vector.
+        """
+        ip_vec = self.inplane_vector(normal, mode)
+
+        return [ dot(b,ip_vec) for b in bases ]
+
+    def inplane_ortho_vector(self, normal):
         # Out of plane.
         oop_vec_length = dot(normal, self.coordinate)
         return [ 
             self.coordinate[i] - normal[i] * oop_vec_length for i in range(3) 
         ]
 
-    def inplane_coordinate(self, normal, bases):
-        """
-        returns in-plane coordinate wrt normal and the unit bases passed in. 2d vector.
-        """
-        ip_vec = self.inplane_vector(normal)
+    def inplane_stereo_vector(self, normal):
+        # Centre of projection to coordinate on sphere.
+        cop_to_coord = [ self.coordinate[i] + SPHERE_RADIUS*normal[i] for i in range(3) ]
 
-        return [ dot(b,ip_vec) for b in bases ]
+        # Component along normal.
+        cop_to_coord_normal_length = dot(normal, cop_to_coord)
+
+        # cotangent ratio to get our component along plane to the right size.
+        cot = SPHERE_RADIUS *2 / cop_to_coord_normal_length
+
+        # Component along plane.
+        return [ 
+            (cop_to_coord[i] - normal[i] * cop_to_coord_normal_length)*cot  for i in range(3) 
+        ]
 
 class View:
     """ View class
     View plane that contains all the stars.
     """
-    def __init__(self, stars = None):
+    def __init__(self, stars = None, mode = 'ortho'):
+        """
+        mode is one of the values in { ortho, stereo, }
+        """
+        self._mode = mode
         if stars:
             self._stars = list()
             for star in stars:
@@ -131,7 +156,7 @@ class View:
         """
         if hasattr(self, '_bases'):
             return self._bases
-        b1 = normalize(self._stars[0].inplane_vector(self.normal))
+        b1 = normalize(self._stars[0].inplane_vector(self.normal, self._mode))
         self._bases = [
             b1,
             cross(b1, self.normal),
@@ -142,14 +167,17 @@ class View:
         """
         Generate the plot of stars in this view and print to `out_filename`.
         """
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(
+            figsize = [15,15],
+            layout = 'tight'
+        )
 
         xs = list()
         ys = list()
         s = list()
         n = list()
         for star in self._stars:
-            x, y = star.inplane_coordinate(self.normal, self.bases)
+            x, y = star.inplane_coordinate(self.normal, self.bases, self._mode)
             xs.append(x)
             ys.append(y)
             s.append(BRIGHT_SCALE*(MAX_BRIGHT - star._magnitude))
@@ -171,7 +199,10 @@ def main():
     with open(args.star_file, 'r') as f:
         sky = json.load(f)
 
-    view = View(stars = sky['stars'])
+    view = View(
+        stars = sky['stars'], 
+        mode = 'stereo'
+    )
     view.save('outfile.png')
     
 if __name__ == '__main__':

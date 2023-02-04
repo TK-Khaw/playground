@@ -1,35 +1,153 @@
 {
-	"timestamp" : "2023-01-31 20:20:47+0800",
+	"timestamp" : "2023-02-04 21:39:45+0800",
 	"stars" : [
 		{
 			"name" : "Vega",
-			"azimuth" : "321:32:29.5",
-			"altitude" : "-33::54.2",
+			"azimuth" : "339:34:22.1",
+			"altitude" : "-44::56:26.5",
 			"magnitude" : 0.09
 		},
 		{
 			"name" : "Zeta Lyrae",
-			"azimuth" : "319:20:03.4",
-			"altitude" : "-32:27:28.1",
+			"azimuth" : "336:51:55.0",
+			"altitude" : "-45:11:03.2",
 			"magnitude" : 4.38
 		},
 		{
 			"name" : "Delta Lyrae",
-			"azimuth" : "317:23:11.4",
-			"altitude" : "-31:13:41.3",
+			"azimuth" : "334:00:36.2",
+			"altitude" : "-44:46:15.4",
 			"magnitude" : 4.19
 		},
 		{
 			"name" : "Sulafat",
-			"azimuth" : "312:34:10.6",
-			"altitude" : "-32:34:48.6",
+			"azimuth" : "329:25:02.9",
+			"altitude" : "-47:40:47.7",
 			"magnitude" : 3.22
 		},
 		{
 			"name" : "Sheliak",
-			"azimuth" : "314:22:36.4",
-			"altitude" : "-33:51:08.4",
+			"azimuth" : "332:15:25.3",
+			"altitude" : "-48:12:56.5",
 			"magnitude" : 3.55
+		},
+
+
+		{
+			"name" : "Altair",
+			"azimuth" : "288:12:45.2",
+			"altitude" : "-51:11:55.5",
+			"magnitude" : 0.82
+		},
+		{
+			"name" : "Tarazed",
+			"azimuth" : "291:25:09.3",
+			"altitude" : "-51:44:35.3",
+			"magnitude" : 2.86
+		},
+		{
+			"name" : "Alshain",
+			"azimuth" : "283:58:35.8",
+			"altitude" : "-50:43:36.0",
+			"magnitude" : 3.86
+		},
+		{
+			"name" : "Theta Aquilae",
+			"azimuth" : "272:09:10.2",
+			"altitude" : "-47:46:13.5",
+			"magnitude" : 3.22
+		},
+		{
+			"name" : "Eta Aquilae",
+			"azimuth" : "275:35:59.6",
+			"altitude" : "-52:18:38.9",
+			"magnitude" : 4.03
+		},
+		{
+			"name" : "Delta Aquilae",
+			"azimuth" : "281:02:04.9",
+			"altitude" : "-58:40:10.2",
+			"magnitude" : 3.44
+		},
+		{
+			"name" : "Zeta Aquilae",
+			"azimuth" : "304:07:23.3",
+			"altitude" : "-59:26:41.8",
+			"magnitude" : 2.98
+		},
+		{
+			"name" : "Epsilon Aquilae",
+			"azimuth" : "307:38:31.7",
+			"altitude" : "-59:57:29.8",
+			"magnitude" : 4.16
+		},
+		{
+			"name" : "Lambda Aquilae",
+			"azimuth" : "265:01:18.9",
+			"altitude" : "-64:03:08.1",
+			"magnitude" : 3.39
+		},
+
+
+		{
+			"name" : "Deneb",
+			"azimuth" : "323:54:15.2",
+			"altitude" : "-24:41:11.2",
+			"magnitude" : 1.29
+		},
+		{
+			"name" : "Mu Cygni",
+			"azimuth" : "302:09:54.7",
+			"altitude" : "-19:51:06.1",
+			"magnitude" : 4.59
+		},
+		{
+			"name" : "Zeta Cygni",
+			"azimuth" : "305:56:35.7",
+			"altitude" : "-25:52:15.1",
+			"magnitude" : 3.36
+		},
+		{
+			"name" : "Epsilon Cygni",
+			"azimuth" : "312:22:47.5",
+			"altitude" : "-29:33:14.5",
+			"magnitude" : 2.64
+		},
+		{
+			"name" : "Sadr",
+			"azimuth" : "321:26:26.0",
+			"altitude" : "-30:25:08.7",
+			"magnitude" : 2.34
+		},
+		{
+			"name" : "Delta Cygni",
+			"azimuth" : "330:59:43.2",
+			"altitude" : "-32:25:54.6",
+			"magnitude" : 2.86
+		},
+		{
+			"name" : "Iota Cygni",
+			"azimuth" : "338:12:23.6",
+			"altitude" : "-29:02:00.6",
+			"magnitude" : 3.81
+		},
+		{
+			"name" : "Kappa Cygni",
+			"azimuth" : "341:04:22.2",
+			"altitude" : "-28:47:35.7",
+			"magnitude" : 3.94
+		},
+		{
+			"name" : "Eta Cygni",
+			"azimuth" : "320:08:55.3",
+			"altitude" : "-37:37:18.0",
+			"magnitude" : 4.03
+		},
+		{
+			"name" : "Beta Cygni",
+			"azimuth" : "317:21:05.1",
+			"altitude" : "-46:20:40.3",
+			"magnitude" : 2.42
 		}
 	]
 }
