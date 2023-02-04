@@ -159,7 +159,7 @@ class View:
         b1 = normalize(self._stars[0].inplane_vector(self.normal, self._mode))
         self._bases = [
             b1,
-            cross(b1, self.normal),
+            cross(self.normal, b1),
         ]
         return self._bases
 
@@ -203,7 +203,7 @@ def main():
         stars = sky['stars'], 
         mode = 'stereo'
     )
-    view.save('outfile.png')
+    view.save('stereo_triangle_2.png')
     
 if __name__ == '__main__':
     main()
