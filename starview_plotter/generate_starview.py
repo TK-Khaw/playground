@@ -131,7 +131,7 @@ class View:
         """
         if hasattr(self, '_bases'):
             return self._bases
-        b1 = self._stars[0].inplane_vector(self.normal)
+        b1 = normalize(self._stars[0].inplane_vector(self.normal))
         self._bases = [
             b1,
             cross(b1, self.normal),
