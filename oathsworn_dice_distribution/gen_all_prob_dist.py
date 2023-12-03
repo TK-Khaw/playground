@@ -15,7 +15,7 @@ logging.basicConfig(
 logger = logging.getLogger("gen_all_prob_dist")
 
 DICE_FILE="dice.json"
-OUT_FILE="prod_dist.json"
+OUT_FILE="prob_dist.json"
 MAX_ROLLS = 10
 NO_OF_SAMPLES = 10000
 
@@ -46,16 +46,6 @@ for param, data in dict_prob_dists.items():
     data["distribution"] = gen_prob_dist(param, DICT_DICE, NO_OF_SAMPLES)
     logger.debug(f"{param_cnt} prob dist generated. Current: {param}")
     param_cnt += 1
-#    for i in range(NO_OF_SAMPLES):
-#        roll = [ random.choice(DICT_DICE[die]) for die in param ]
-#        if roll.count(0) > 1:
-#            data["distribution"][0] = data["distribution"].get(0, 0) + 1
-#        else:
-#            value = sum(roll)
-#            data["distribution"][value] = data["distribution"].get(value, 0) + 1
-#
-#    data["distribution"] = { k: v/NO_OF_SAMPLES for k,v in data["distribution"].items() }
-
 
 # export prob dist.
 logger.info("Done generating all prob dist. Export to file.")
